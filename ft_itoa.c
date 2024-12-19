@@ -6,7 +6,7 @@
 /*   By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 13:57:27 by jpareja-          #+#    #+#             */
-/*   Updated: 2024/12/19 13:11:38 by jpareja-         ###   ########.fr       */
+/*   Updated: 2024/12/19 13:50:55 by jpareja-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ static int	ft_aux(int aux, int n)
 	int	len;
 
 	len = 1;
-	while (aux /= 10)
+	aux /= 10;
+	while (aux)
 	{
+		aux /= 10;
 		len++;
 	}
 	if (n < 0)
@@ -28,9 +30,9 @@ static int	ft_aux(int aux, int n)
 
 char	*ft_itoa(int n)
 {
-	int	len;
-	char *result;
-	
+	int		len;
+	char	*result;
+
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
 	if (n == 0)
@@ -40,7 +42,8 @@ char	*ft_itoa(int n)
 	if (!result)
 		return (NULL);
 	result[len] = '\0';
-	if (n < 0){
+	if (n < 0)
+	{
 		result[0] = '-';
 		n = -n;
 	}
@@ -50,5 +53,5 @@ char	*ft_itoa(int n)
 		result[len--] = n % 10 + '0';
 		n /= 10;
 	}
-	return (result);	
+	return (result);
 }

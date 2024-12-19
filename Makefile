@@ -6,7 +6,7 @@
 #    By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/02 12:42:29 by angellop          #+#    #+#              #
-#    Updated: 2024/12/17 14:00:42 by jpareja-         ###   ########.fr        #
+#    Updated: 2024/12/19 13:34:29 by jpareja-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ MY_SOURCES = ft_isdigit.c \
              ft_strjoin.c \
              ft_split.c \
              ft_itoa.c \
+             ft_strtrim.c \
 
 # Object files corresponding to the source files
 OBJS = $(MY_SOURCES:.c=.o)
