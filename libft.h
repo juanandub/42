@@ -6,7 +6,7 @@
 /*   By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:57:37 by jpareja-          #+#    #+#             */
-/*   Updated: 2024/12/06 11:10:52 by jpareja-         ###   ########.fr       */
+/*   Updated: 2024/12/17 14:02:25 by jpareja-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,15 @@
 
 # include <string.h>
 # include <errno.h>
+# include <stdlib.h>
 
 int		ft_isdigit(int c);
 int		ft_isalpha(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
+int		ft_toupper(int c);
+int		ft_tolower(int c);
 size_t	ft_strlen(const char *str);
 void	*ft_memset(void *s, int c, size_t n);
 char	*ft_strchr(const char *string, int c);
@@ -35,9 +38,13 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_atoi(const char *nptr);
 size_t	strlcpy(char *dst, const char *src, size_t size);
 void	ft_bzero(void *s, size_t n);
-size_t	strlcpy(char *dst, const char *src, size_t size);
-void	*calloc(size_t nmemb, size_t size);
-char	*strnstr(const char *big, const char *little, size_t len);
-char	*strdup(const char *s);
+void	*ft_calloc(size_t nmemb, size_t size);
+char	*ft_strnstr(const char *big, const char *little, size_t len);
+char	*ft_strdup(const char *s);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	**ft_split(char const *s, char c);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+char	*ft_itoa(int n);
 
 #endif

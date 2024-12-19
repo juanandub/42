@@ -6,7 +6,7 @@
 #    By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/02 12:42:29 by angellop          #+#    #+#              #
-#    Updated: 2024/12/06 14:13:10 by jpareja-         ###   ########.fr        #
+#    Updated: 2024/12/17 14:00:42 by jpareja-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,14 @@ MY_SOURCES = ft_isdigit.c \
              ft_strncmp.c \
              ft_memchr.c \
              ft_memcmp.c \
+             ft_strnstr.c \
              ft_atoi.c \
+             ft_calloc.c \
+             ft_strdup.c \
+             ft_substr.c \
+             ft_strjoin.c \
+             ft_split.c \
+             ft_itoa.c \
 
 # Object files corresponding to the source files
 OBJS = $(MY_SOURCES:.c=.o)
@@ -57,10 +64,10 @@ all: $(NAME)
 	@$(CC) $(CCFLAGS) -c -o $@ $<
 
 clean:
-	@$(RM) $(OBJS) 
+	@$(RM) $(OBJS)
 
 fclean: clean
-	@rm -f $(NAME) 
+	@rm -f $(NAME) $(DEPS)
 
 re:	fclean all # Clean and recompile everything
 

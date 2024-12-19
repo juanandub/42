@@ -6,7 +6,7 @@
 /*   By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 17:54:46 by jpareja-          #+#    #+#             */
-/*   Updated: 2024/12/06 11:55:02 by jpareja-         ###   ########.fr       */
+/*   Updated: 2024/12/14 09:41:14 by jpareja-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const char	*aux;
+	const unsigned char	*aux;
 
-	aux = (const char *)s;
-	while (*aux && n--)
+	aux = (const unsigned char *)s;
+	while (n--)
 	{
-		if (*aux == (char) c)
+		if (*aux == (unsigned char) c)
 		{
 			return ((void *) aux);
 		}

@@ -6,15 +6,15 @@
 /*   By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:31:31 by jpareja-          #+#    #+#             */
-/*   Updated: 2024/12/02 13:11:38 by jpareja-         ###   ########.fr       */
+/*   Updated: 2024/12/14 10:11:08 by jpareja-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	ft_toupper(int c)
+int	ft_tolower(int c)
 {
-	if ((c >= 'A' && c <= 'Z'))
+	if (((unsigned char) c >= 'A' && (unsigned char) c <= 'Z'))
 	{
 		return (c + 32);
 	}

@@ -6,21 +6,22 @@
 /*   By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 12:39:45 by jpareja-          #+#    #+#             */
-/*   Updated: 2024/12/06 11:03:33 by jpareja-         ###   ########.fr       */
+/*   Updated: 2024/12/11 12:32:50 by jpareja-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	char		*p;
+	char	*p;
 	size_t	i;
 	size_t	aux;
-	
-	if (*little == "")
-		return (big);
+
+	if (little[0] == '\0')
+		return ((char *) big);
 	i = 0;
+	p = NULL;
 	while (big[i] != '\0' && i < len)
 	{
 		aux = 0;
