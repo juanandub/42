@@ -6,7 +6,7 @@
 #    By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/02 12:42:29 by angellop          #+#    #+#              #
-#    Updated: 2024/12/21 14:01:38 by jpareja-         ###   ########.fr        #
+#    Updated: 2024/12/27 13:27:52 by jpareja-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ MY_SOURCES = ft_isdigit.c \
 			 ft_putnbr_fd.c \
 			 
 MY_SOURCES_BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c ft_lstadd_back_bonus.c \
-					ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c 
+					ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 
 
 CC = gcc # compiler

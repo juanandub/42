@@ -6,7 +6,7 @@
 /*   By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 18:15:33 by jpareja-          #+#    #+#             */
-/*   Updated: 2024/12/13 10:52:18 by jpareja-         ###   ########.fr       */
+/*   Updated: 2024/12/27 13:14:33 by jpareja-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *str);
 
-size_t	ft_strlcat(char *dst, char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	dst_len;
 	size_t	src_len;

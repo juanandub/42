@@ -6,15 +6,11 @@
 /*   By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:17:29 by jpareja-          #+#    #+#             */
-/*   Updated: 2024/12/13 10:24:28 by jpareja-         ###   ########.fr       */
+/*   Updated: 2024/12/27 13:15:34 by jpareja-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-size_t	ft_strlcat(char *dst, char *src, size_t size);
-size_t	ft_strlen(const char *str);
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
