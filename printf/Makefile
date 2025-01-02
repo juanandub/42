@@ -6,50 +6,17 @@
 #    By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/02 12:42:29 by angellop          #+#    #+#              #
-#    Updated: 2025/01/02 16:27:36 by jpareja-         ###   ########.fr        #
+#    Updated: 2025/01/02 17:40:15 by jpareja-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME = libftprintf.a
+LIBFT = libft.a
+LIBFT_DIR = ../libft
 
-MY_SOURCES = ft_isdigit.c \
-			 ft_isalnum.c \
-			 ft_isalpha.c \
-			 ft_isascii.c \
-			 ft_isprint.c \
-			 ft_strlen.c \
-			 ft_memset.c \
-			 ft_bzero.c \
-			 ft_memcpy.c \
-			 ft_memmove.c \
-			 ft_strlcpy.c \
-			 ft_strlcat.c \
-			 ft_toupper.c \
-			 ft_tolower.c \
-			 ft_strchr.c \
-			 ft_strrchr.c \
-			 ft_strncmp.c \
-			 ft_memchr.c \
-			 ft_memcmp.c \
-			 ft_strnstr.c \
-			 ft_atoi.c \
-			 ft_calloc.c \
-			 ft_strdup.c \
-			 ft_substr.c \
-			 ft_strjoin.c \
-			 ft_split.c \
-			 ft_itoa.c \
-			 ft_strtrim.c \
-			 ft_strmapi.c \
-			 ft_striteri.c \
-			 ft_putchar_fd.c \
-			 ft_putstr_fd.c \
-			 ft_putendl_fd.c \
-			 ft_putnbr_fd.c \
+MY_SOURCES =  ft_printf.c \
 			 
-MY_SOURCES_BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c ft_lstadd_back_bonus.c \
-					ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
-
+MY_SOURCES_BONUS = 
 
 CC = cc # compiler
 CCFLAGS = -Wall -Wextra -Werror # flags for warnings and errors
@@ -63,7 +30,11 @@ BONUS_OBJS = $(MY_SOURCES_BONUS:.c=.o)
 %.o : %.c
 	$(CC) $(CCFLAGS) -c $< -o $@
 
-all: $(NAME)
+all: libft $(NAME)
+
+libft:
+	@echo "Compilando libft..."
+	$(MAKE) -C $(LIBFT_DIR)
 
 bonus: $(OBJS) $(BONUS_OBJS)
 	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
@@ -71,6 +42,9 @@ bonus: $(OBJS) $(BONUS_OBJS)
 # Build the static library
 $(NAME) : $(OBJS)
 	$(AR) $(NAME) $(OBJS)
+
+test: test.o $(NAME)
+	$(CC) $(CCFLAGS) test.c $(NAME) $(LIBFT_DIR)/$(LIBFT) -o test
 
 clean:
 	$(RM) $(OBJS) $(BONUS_OBJS)
