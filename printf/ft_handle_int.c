@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_handle_int.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/02 16:34:59 by jpareja-          #+#    #+#             */
-/*   Updated: 2025/01/03 20:19:04 by jpareja-         ###   ########.fr       */
+/*   Created: 2025/01/03 19:49:07 by jpareja-          #+#    #+#             */
+/*   Updated: 2025/01/03 20:07:44 by jpareja-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libftprintf.h"
 
-# include "../libft/libft.h"
-# include <stdarg.h>
-# include <unistd.h>
+int	ft_handle_int(char c, va_list a)
+{
+	int	total;
 
-int	ft_printf(char const *, ...);
-int	ft_handle_int(char c, va_list a);
-int ft_putnbr_base(unsigned long num, char *base, int base_len);
-
-#endif
+	total = 0;
+	if (c == 'i' || c == 'd')
+		total += ft_aux_int(a);
+	else if (c == 'u')
+	{
+		/* code */
+	}
+	else if (c == 'x')
+	{
+		/* code */
+	}
+	else if(c == 'X')
+	
+	
+	return (total);
+}

@@ -6,7 +6,7 @@
 #    By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/02 12:42:29 by angellop          #+#    #+#              #
-#    Updated: 2025/01/02 17:40:15 by jpareja-         ###   ########.fr        #
+#    Updated: 2025/01/03 19:54:55 by jpareja-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libftprintf.a
 LIBFT = libft.a
 LIBFT_DIR = ../libft
 
-MY_SOURCES =  ft_printf.c \
+MY_SOURCES =  ft_printf.c \ ft_handle_int.c
 			 
 MY_SOURCES_BONUS = 
 

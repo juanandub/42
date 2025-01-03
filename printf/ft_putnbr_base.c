@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/02 16:34:59 by jpareja-          #+#    #+#             */
-/*   Updated: 2025/01/03 20:19:04 by jpareja-         ###   ########.fr       */
+/*   Created: 2025/01/03 20:07:31 by jpareja-          #+#    #+#             */
+/*   Updated: 2025/01/03 20:07:53 by jpareja-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libftprintf.h"
 
-# include "../libft/libft.h"
-# include <stdarg.h>
-# include <unistd.h>
-
-int	ft_printf(char const *, ...);
-int	ft_handle_int(char c, va_list a);
-int ft_putnbr_base(unsigned long num, char *base, int base_len);
-
-#endif
+static void	ft_putnbr_base(unsigned long num, char *base, int base_len)
+{
+	
+}
