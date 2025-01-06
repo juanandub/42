@@ -6,7 +6,7 @@
 /*   By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 17:28:03 by jpareja-          #+#    #+#             */
-/*   Updated: 2025/01/04 16:59:38 by jpareja-         ###   ########.fr       */
+/*   Updated: 2025/01/06 20:14:47 by jpareja-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,13 @@ int main(void)
 	printf("\n");
 	res = ft_printf("%u ", -1);
 	res1 = printf("%u ", -1);
+	printf("\n");
+	ft_printf("res: %i, res1: %i",res,res1);
+	printf("\n");
+	ft_printf("\n--------------VOID-----------\n");
+	int x = 42;
+	res = ft_printf("%p ", &x);
+	res1 = printf("%p ", &x);
 	printf("\n");
 	ft_printf("res: %i, res1: %i",res,res1);
 	printf("\n");
