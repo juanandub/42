@@ -6,7 +6,7 @@
 /*   By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:38:47 by jpareja-          #+#    #+#             */
-/*   Updated: 2025/01/06 20:27:03 by jpareja-         ###   ########.fr       */
+/*   Updated: 2025/01/06 20:43:00 by jpareja-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,31 +34,15 @@ static int	ft_handle_str(va_list a)
 
 static int	ft_handle_hex(char o, va_list a)
 {
-	int	total;
-	unsigned int va;
-	
+	int				total;
+	unsigned int	va;
+
 	total = 1;
 	va = va_arg(a, unsigned int);
-	if (o  == 'x')
+	if (o == 'x')
 		ft_putnbr_base(va, "0123456789abcdef", 16);
 	else if (o == 'X')
 		ft_putnbr_base(va, "0123456789ABCDEF", 16);
-	while (va > 0)
-	{
-		total++;
-		va = va / 16;	
-	}
-	return (total);
-}
-static int	ft_handle_p(va_list a)
-{
-	int				total;
-	unsigned long	va;
-
-	total = 2;
-	va = (unsigned long) va_arg(a, void*);
-	write(1, "0x", 2);
-	ft_putnbr_base(va, "0123456789abcdef", 16);
 	while (va > 0)
 	{
 		total++;
@@ -67,7 +51,7 @@ static int	ft_handle_p(va_list a)
 	return (total);
 }
 
-static int ft_aux(char o, va_list a)
+static int	ft_aux(char o, va_list a)
 {
 	int	total;
 
@@ -93,12 +77,12 @@ static int ft_aux(char o, va_list a)
 int	ft_printf(char const *format, ...)
 {
 	va_list	args;
-	int	i;
-	int total;
+	int		i;
+	int		total;
 
 	i = 0;
 	total = 0;
-	va_start( args, format);
+	va_start(args, format);
 	while (format[i])
 	{
 		if (format[i] == '%')
