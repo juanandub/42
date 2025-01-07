@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/03 20:07:31 by jpareja-          #+#    #+#             */
-/*   Updated: 2025/01/07 12:22:16 by jpareja-         ###   ########.fr       */
+/*   Created: 2024/12/02 12:31:31 by jpareja-          #+#    #+#             */
+/*   Updated: 2024/12/14 10:11:08 by jpareja-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_putnbr_base(unsigned long num, char *base, int base_len)
+int	ft_tolower(int c)
 {
-	if (num >= (unsigned long)base_len)
-		ft_putnbr_base(num / base_len, base, base_len);
-	write(1, &base[num % base_len], 1);
+	if (((unsigned char) c >= 'A' && (unsigned char) c <= 'Z'))
+	{
+		return (c + 32);
+	}
+	return (c);
 }

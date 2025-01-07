@@ -6,11 +6,11 @@
 /*   By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:38:47 by jpareja-          #+#    #+#             */
-/*   Updated: 2025/01/06 20:43:00 by jpareja-         ###   ########.fr       */
+/*   Updated: 2025/01/07 17:30:54 by jpareja-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	ft_handle_char(va_list a)
 {
@@ -37,12 +37,16 @@ static int	ft_handle_hex(char o, va_list a)
 	int				total;
 	unsigned int	va;
 
-	total = 1;
+	total = 0;
 	va = va_arg(a, unsigned int);
 	if (o == 'x')
 		ft_putnbr_base(va, "0123456789abcdef", 16);
 	else if (o == 'X')
 		ft_putnbr_base(va, "0123456789ABCDEF", 16);
+	if (va < 0)
+		va = -va;
+	else if (va == 0)
+		return (1);
 	while (va > 0)
 	{
 		total++;

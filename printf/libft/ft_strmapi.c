@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/03 20:07:31 by jpareja-          #+#    #+#             */
-/*   Updated: 2025/01/07 12:22:16 by jpareja-         ###   ########.fr       */
+/*   Created: 2024/12/19 18:10:58 by jpareja-          #+#    #+#             */
+/*   Updated: 2024/12/19 18:20:56 by jpareja-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_putnbr_base(unsigned long num, char *base, int base_len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	if (num >= (unsigned long)base_len)
-		ft_putnbr_base(num / base_len, base, base_len);
-	write(1, &base[num % base_len], 1);
+	size_t	i;
+	size_t	len;
+	char	*result;
+
+	len = ft_strlen(s);
+	result = malloc(len + 1);
+	if (!result)
+		return (NULL);
+	result[len] = '\0';
+	i = 0;
+	while (i < len)
+	{
+		result[i] = f(i, s[i]);
+		i++;
+	}
+	return (result);
 }

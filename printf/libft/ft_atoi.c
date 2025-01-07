@@ -1,20 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/03 20:07:31 by jpareja-          #+#    #+#             */
-/*   Updated: 2025/01/07 12:22:16 by jpareja-         ###   ########.fr       */
+/*   Created: 2024/12/04 10:18:46 by jpareja-          #+#    #+#             */
+/*   Updated: 2024/12/19 11:47:20 by jpareja-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_putnbr_base(unsigned long num, char *base, int base_len)
+int	ft_atoi(const char *nptr)
 {
-	if (num >= (unsigned long)base_len)
-		ft_putnbr_base(num / base_len, base, base_len);
-	write(1, &base[num % base_len], 1);
+	int	i;
+	int	result;
+	int	sign;
+
+	i = 0;
+	result = 0;
+	sign = 1;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		result = result * 10 + (nptr[i++] - '0');
+	}
+	return (result * sign);
 }

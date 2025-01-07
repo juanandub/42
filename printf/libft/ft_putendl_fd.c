@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/03 20:07:31 by jpareja-          #+#    #+#             */
-/*   Updated: 2025/01/07 12:22:16 by jpareja-         ###   ########.fr       */
+/*   Created: 2024/12/19 18:47:53 by jpareja-          #+#    #+#             */
+/*   Updated: 2024/12/19 19:28:23 by jpareja-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_putnbr_base(unsigned long num, char *base, int base_len)
+void	ft_putendl_fd(char *s, int fd)
 {
-	if (num >= (unsigned long)base_len)
-		ft_putnbr_base(num / base_len, base, base_len);
-	write(1, &base[num % base_len], 1);
+	write(fd, s, ft_strlen(s));
+	write(fd, "\n", 1);
 }

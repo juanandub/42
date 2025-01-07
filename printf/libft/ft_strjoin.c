@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/03 20:07:31 by jpareja-          #+#    #+#             */
-/*   Updated: 2025/01/07 12:22:16 by jpareja-         ###   ########.fr       */
+/*   Created: 2024/12/11 10:17:29 by jpareja-          #+#    #+#             */
+/*   Updated: 2024/12/27 13:15:34 by jpareja-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_putnbr_base(unsigned long num, char *base, int base_len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	if (num >= (unsigned long)base_len)
-		ft_putnbr_base(num / base_len, base, base_len);
-	write(1, &base[num % base_len], 1);
+	char	*str;
+
+	if (!s1 || !s2)
+		return (NULL);
+	str = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!str)
+		return (NULL);
+	ft_strlcpy(str, s1, ft_strlen(s1) + 1);
+	ft_strlcat(str, (char *) s2, ft_strlen(s1) + ft_strlen(s2) + 1);
+	return (str);
 }

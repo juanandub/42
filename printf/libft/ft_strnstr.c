@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_handle_p.c                                      :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/06 20:40:20 by jpareja-          #+#    #+#             */
-/*   Updated: 2025/01/07 13:16:44 by jpareja-         ###   ########.fr       */
+/*   Created: 2024/12/05 12:39:45 by jpareja-          #+#    #+#             */
+/*   Updated: 2024/12/11 12:32:50 by jpareja-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_handle_p(va_list a)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int				total;
-	unsigned long	va;
+	char	*p;
+	size_t	i;
+	size_t	aux;
 
-	total = 2;
-	va = (unsigned long)va_arg(a, void *);
-	if (va == 0)
+	if (little[0] == '\0')
+		return ((char *) big);
+	i = 0;
+	p = NULL;
+	while (big[i] != '\0' && i < len)
 	{
-		write(1, "(nil)", 5);
-		return (5);
+		aux = 0;
+		while (big[i + aux] == little[aux] && i + aux < len)
+		{
+			if (little[aux + 1] == '\0')
+			{
+				p = (char *)&big[i];
+				return (p);
+			}
+			aux++;
+		}
+		i++;
 	}
-	write(1, "0x", 2);
-	ft_putnbr_base(va, "0123456789abcdef", 16);
-	while (va > 0)
-	{
-		total++;
-		va = va / 16;
-	}
-	return (total);
+	return (p);
 }

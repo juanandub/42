@@ -6,11 +6,11 @@
 /*   By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 19:49:07 by jpareja-          #+#    #+#             */
-/*   Updated: 2025/01/06 20:39:05 by jpareja-         ###   ########.fr       */
+/*   Updated: 2025/01/07 17:20:30 by jpareja-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	ft_aux_int(va_list a)
 {
@@ -20,6 +20,15 @@ static int	ft_aux_int(va_list a)
 	total = 0;
 	va = va_arg(a, int);
 	ft_putnbr_fd(va, 1);
+	if (va == 0)
+		return (1);
+	else if (va < 0)
+	{
+		va = va * -1;
+		total++;
+		if (va == -2147483648)
+			return (11);
+	}
 	while (va > 0)
 	{
 		total++;
@@ -36,6 +45,8 @@ static int	ft_aux_uint(va_list a)
 	total = 0;
 	va = va_arg(a, unsigned int);
 	ft_putnbr_base(va, "0123456789", 10);
+	if (va == 0)
+		return (1);
 	while (va > 0)
 	{
 		total++;
