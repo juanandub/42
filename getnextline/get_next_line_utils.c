@@ -6,7 +6,7 @@
 /*   By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 13:40:10 by jpareja-          #+#    #+#             */
-/*   Updated: 2025/01/31 13:12:14 by jpareja-         ###   ########.fr       */
+/*   Updated: 2025/01/31 19:17:41 by jpareja-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,24 @@ char	*ft_strdup(const char *s)
 {
 	char	*str;
 	size_t	len;
-	int		i;
+	size_t	i;
 
-	len = ft_strlen(s) + 1;
-	str = malloc(len);
-	if (str == NULL)
+	if (!s)
 		return (NULL);
-	if (!str && !s)
-		return (0);
+	len = ft_strlen(s);
+	str = malloc(len + 1);
+	if (!str)
+		return (NULL);
 	i = 0;
-	while (len--)
+	while (i < len)
 	{
 		str[i] = s[i];
 		i++;
 	}
+	str[i] = '\0';
 	return (str);
 }
+
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
@@ -55,9 +57,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!str)
 		return (NULL);
 	ft_strlcpy(str, s1, ft_strlen(s1) + 1);
-	ft_strlcat(str, (char *) s2, ft_strlen(s1) + ft_strlen(s2) + 1);
+	ft_strlcat(str, s2, ft_strlen(s1) + ft_strlen(s2) + 1);
 	return (str);
 }
+
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	dst_len;
@@ -66,6 +69,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 
 	dst_len = 0;
 	src_len = ft_strlen(src);
+	if (!dst || size == 0)
+		return (src_len);
 	while (dst_len < size && dst[dst_len] != '\0')
 		dst_len++;
 	if (size <= dst_len)
@@ -79,10 +84,13 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[dst_len + i] = '\0';
 	return (dst_len + src_len);
 }
+
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 
+	if (!src)
+		return (0);
 	i = 0;
 	if (size == 0)
 		return (ft_strlen(src));
