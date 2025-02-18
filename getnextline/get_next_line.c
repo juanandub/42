@@ -6,7 +6,7 @@
 /*   By: jpareja- <jpareja-@student.42malaga.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:01:40 by jpareja-          #+#    #+#             */
-/*   Updated: 2025/01/31 20:00:07 by jpareja-         ###   ########.fr       */
+/*   Updated: 2025/02/18 18:34:54 by jpareja-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,19 @@ static void	ft_aux(char **stash, char *buffer, int fd)
 {
 	ssize_t		b_read;
 	char		*tmp;
-	
+
 	while (find_newline(*stash) == -1)
 	{
 		b_read = read(fd, buffer, BUFFER_SIZE);
-		if (b_read < 0)
+		if (b_read <= 0)
 		{
-			free(buffer);
+			if (*stash && b_read == -1)
+			{
+				free(*stash);
+				*stash = NULL;
+			}
 			return ;
 		}
-		if (b_read == 0)
-			return ;
 		buffer[b_read] = '\0';
 		if (!*stash)
 			*stash = ft_strdup(buffer);
@@ -83,7 +85,10 @@ static char	*ft_extract_line(char **stash, int index)
 	char	*tmp;
 
 	if (!*stash || **stash == '\0')
+	{
+		free(*stash);
 		return (NULL);
+	}
 	if (index == -1)
 	{
 		line = ft_strdup(*stash);
@@ -110,7 +115,11 @@ char	*get_next_line(int fd)
 	int			i;
 
 	if (BUFFER_SIZE <= 0 || fd < 0 || read(fd, 0, 0) < 0)
+	{
+		free(stash);
+		stash = NULL;
 		return (NULL);
+	}
 	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buffer)
 		return (NULL);
