@@ -114,7 +114,7 @@ char	*get_next_line(int fd)
 	char		*buffer;
 	int			i;
 
-	if (BUFFER_SIZE <= 0 || fd < 0 || read(fd, 0, 0) < 0)
+	if (BUFFER_SIZE <= 0 || fd < 0)
 	{
 		free(stash);
 		stash = NULL;
